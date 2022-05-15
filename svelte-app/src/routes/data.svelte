@@ -1,58 +1,59 @@
 <script>
-	// import { page } from '$app/stores';
-	import { firstLetterToUpper } from './../lib/lib.js';
-	export let data = 'You';
-	
-	const dataCleaned = firstLetterToUpper(data);
+  // import { page } from '$app/stores';
+  import { firstLetterToUpper } from './../lib/lib.js';
+  export let data = 'You';
 
-	let hue = 50;
-	let fontHue = 0;
+  const dataCleaned = firstLetterToUpper(data);
 
-	setInterval(() => {
-		hue++;
-		fontHue = hue + 250;
-	}, 50);
+  let hue = 50;
+  let fontHue = 0;
 
-	const saying = `Go\nFuck\nYourself!`;
+  setInterval(() => {
+    hue++;
+    fontHue = hue + 250;
+  }, 50);
+
+  const saying = `Go\nFuck\nYourself!`;
 </script>
 
 <svelte:head>
-	<title>Yeet</title>
-	<meta name="description" content="Cause this person loves you!" />
+  <title>Yeet</title>
+  <meta name="description" content="Cause this person loves you!" />
 </svelte:head>
 
 <div
-	style="color:hsl({fontHue}, 50%, 50%);background-color:hsl({hue}, 50%, 50%)"
-	class="saying-container"
+  style="color:hsl({fontHue}, 50%, 50%);background-color:hsl({hue}, 50%, 50%)"
+  class="saying-container"
 >
-	<div class="saying">{dataCleaned},</div>
-	<div class="saying" style="text-decoration: underline;">{saying}</div>
+  <div class="saying"></div>
+  <div class="saying">Hey {dataCleaned},</div>
+  <div class="saying" style="text-decoration: underline;">{saying}</div>
 </div>
 
 <style>
-	.saying-container {
-		position: absolute;
+  .saying-container {
+    position: absolute;
 
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-	@font-face {
-		font-family: 'Pacifico';
-		src: url('./Pacifico-Regular.ttf');
-	}
+  @font-face {
+    font-family: 'Pacifico';
+    src: url('./Pacifico-Regular.ttf');
+  }
 
-	.saying {
-		font: 400 100px/1.3 'Pacifico', Helvetica, sans-serif;
-		font-size: 500%;
-		font-style: italic;
-		text-align: center;
-	}
+  .saying {
+    font: 400 100px/1.3 'Pacifico', Helvetica, sans-serif;
+    font-size: 500%;
+    font-style: italic;
+    text-align: center;
+  }
 </style>
