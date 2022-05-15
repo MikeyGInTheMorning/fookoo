@@ -1,0 +1,7 @@
+https://docs.microsoft.com/en-us/azure/static-web-apps/getting-started?tabs=vue
+
+https://docs.microsoft.com/en-us/azure/static-web-apps/add-api?tabs=vanilla-javascript
+
+https://stackoverflow.com/questions/69896803/blazor-azure-deployment-error-error-could-not-detect-the-language-from-repo
+
+https://docs.microsoft.com/en-us/azure/static-web-apps/get-started-portal?tabs=vanilla-javascript&pivots=github
