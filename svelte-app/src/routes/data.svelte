@@ -51,7 +51,8 @@
 
 	.saying {
 		font: 400 100px/1.3 'Pacifico', Helvetica, sans-serif;
-		font-size: 6rem;
+		font-size: 500%;
 		font-style: italic;
+		text-align: center;
 	}
 </style>
