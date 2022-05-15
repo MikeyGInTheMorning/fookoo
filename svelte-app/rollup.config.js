@@ -5,6 +5,7 @@ import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import postcss from 'rollup-plugin-postcss';
 import replace from '@rollup/plugin-replace';
+import copy from 'rollup-plugin-copy'
 
 const production = !process.env.ROLLUP_WATCH;
 const api = 'http://localhost:7071/api';
@@ -19,6 +20,11 @@ export default {
     file: 'public/build/bundle.js',
   },
   plugins: [
+    copy({
+      targets: [
+        { src: 'src/resources/*', dest: 'public/build' }
+      ]
+    }),
     replace({
       // 2 level deep object should be stringify
       process: JSON.stringify({

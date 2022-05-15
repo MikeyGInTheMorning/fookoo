@@ -46,7 +46,7 @@
 
 	@font-face {
 		font-family: 'Pacifico';
-		src: url('../resources/Pacifico-Regular.ttf');
+		src: url('./Pacifico-Regular.ttf');
 	}
 
 	.saying {
