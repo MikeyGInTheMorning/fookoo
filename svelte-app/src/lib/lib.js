@@ -27,6 +27,7 @@ const hashData = (/** @type {string} */ data) => {
     return hash;
 };
 
+
 export {
     hashData,
     firstLetterToUpper
