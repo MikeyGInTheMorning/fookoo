@@ -1,33 +1,32 @@
 <script>
   // import { page } from '$app/stores';
-  import { firstLetterToUpper } from './../lib/lib.js';
-  export let data = 'You';
+  import { firstLetterToUpper, getSaying } from './../lib/lib.js';
 
-  const dataCleaned = firstLetterToUpper(data);
+  export let data = '';
+  export let sayingHash = '';
 
+  let dataCleaned = firstLetterToUpper(data);
+  let saying;
   let hue = 50;
   let fontHue = 0;
+
+  getSaying(sayingHash).then((res) => (saying = res));
 
   setInterval(() => {
     hue++;
     fontHue = hue + 250;
   }, 50);
-
-  const saying = `Go\nFuck\nYourself!`;
 </script>
 
-<svelte:head>
-  <title>Yeet</title>
-  <meta name="description" content="Cause this person loves you!" />
-</svelte:head>
-
+<title>Yeet</title>
 <div
   style="color:hsl({fontHue}, 50%, 50%);background-color:hsl({hue}, 50%, 50%)"
   class="saying-container"
 >
-  <div class="saying"></div>
-  <div class="saying">Hey {dataCleaned},</div>
-  <div class="saying" style="text-decoration: underline;">{saying}</div>
+  {#if saying}
+    <div class="saying">Hey {dataCleaned},</div>
+    <div class="saying" style="text-decoration: underline;">{saying}</div>
+  {/if}
 </div>
 
 <style>

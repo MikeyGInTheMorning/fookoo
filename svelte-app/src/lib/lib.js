@@ -10,6 +10,11 @@ const firstLetterToUpper = (data) => {
     return words.join(" ");
 }
 
+const cleanName = (name) => {
+    var newName = firstLetterToUpper(name)
+    return newName.replace(' ', '_')
+}
+
 const hashData = (/** @type {string} */ data) => {
     var hash = 0, i, chr;
 
@@ -27,8 +32,47 @@ const hashData = (/** @type {string} */ data) => {
     return hash;
 };
 
+const addSaying = async (sentence) => {
+
+    const body = {
+        sentence,
+    };
+    return await fetch('http://localhost:7071/api/AddSaying', {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+        },
+        body: JSON.stringify(body)
+    })
+        .then(response => response.json())
+        .then((res) => { return res; })
+        .catch((e) => {
+            console.error(e);
+            return false;
+        });
+}
+
+const getSaying = async (hash) => {
+    return await fetch(`http://localhost:7071/api/GetSaying?hash=${hash}`, {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+        .then(response => response.json())
+        .then(res => {
+            console.log(res)
+            return res.saying.sentence
+        })
+        .catch(e => {
+            console.error(e)
+            return null
+        })
+}
 
 export {
     hashData,
-    firstLetterToUpper
+    firstLetterToUpper,
+    addSaying,
+    getSaying,
+    cleanName
 }

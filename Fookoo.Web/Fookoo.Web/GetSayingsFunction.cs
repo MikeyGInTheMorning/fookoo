@@ -34,7 +34,7 @@ namespace Fookoo.Web
 
             var saying =  sayings.FirstOrDefault(a => a.Hash.ToLower() == hash.ToString().ToLower()) ?? new Saying();
 
-            return new OkObjectResult(saying);
+            return new JsonResult(new { saying });
         }
 
         public class AddSayingRequest
@@ -59,16 +59,19 @@ namespace Fookoo.Web
             var body = JsonConvert.DeserializeObject<AddSayingRequest>(content);
 
             var newId = Guid.NewGuid().ToString();
-            sayings.Add(new()
+            var saying = new Saying()
             {
                 Hash = newId,
                 Sentence = body.Sentence
-            });
+            };
+            sayings.Add(saying);
 
             await UploadToBlob(sayings);
 
-            var responseMessage = $"Saved Saying! Your Hash is {newId}";
-            return new OkObjectResult(responseMessage);
+            return new JsonResult(new
+            {
+                saying
+            });
         }
 
 

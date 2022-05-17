@@ -1,3 +1,17 @@
 https://docs.microsoft.com/en-us/learn/modules/publish-app-service-static-web-app-api/3-static-web-apps?pivots=svelte
 
 https://www.geektrainer.dev/code/deploy-sveltekit-aswa/
+
+
+{
+  "sayings": [
+    {
+      "hash": "1",
+      "saying": "I Love You."
+    },
+    {
+      "hash": "2",
+      "saying": "I Love You 2."
+    }
+  ]
+}

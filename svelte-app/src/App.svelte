@@ -13,6 +13,7 @@
       <div>
         <Route path="/custom" component={Custom} />
         <Route path="/:data" component={Data} />
+        <Route path="/:data/:sayingHash" component={Data} />
         <Route path="**" component={Lost} />
       </div>
     </main>
